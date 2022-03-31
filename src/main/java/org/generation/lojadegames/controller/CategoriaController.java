@@ -2,6 +2,8 @@ package org.generation.lojadegames.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.generation.lojadegames.model.Categoria;
 import org.generation.lojadegames.repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +44,7 @@ public class CategoriaController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Categoria> post (@RequestBody Categoria categoria){
+	public ResponseEntity<Categoria> post (@RequestBody @Valid Categoria categoria){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(categoria));
 	}
 		

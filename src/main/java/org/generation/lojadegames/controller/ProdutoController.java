@@ -1,6 +1,9 @@
 package org.generation.lojadegames.controller;
 
 import java.util.List;
+
+import javax.validation.Valid;
+
 import org.generation.lojadegames.model.Produto;
 import org.generation.lojadegames.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +44,7 @@ public class ProdutoController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Produto> post (@RequestBody Produto produto){ 
+	public ResponseEntity<Produto> post (@RequestBody @Valid Produto produto){ 
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(produto));
 	}
 	
